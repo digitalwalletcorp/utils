@@ -1,0 +1,44 @@
+{
+  "name": "@digitalwalletcorp/utils",
+  "version": "0.1.0",
+  "description": "A javascript utility.",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "scripts": {
+    "build": "tsc --project tsconfig.build.json",
+    "install:dev": "rm -rf lib dest && find node_modules -mindepth 1 -delete && yarn install",
+    "version:patch": "npm version patch",
+    "version:minor": "npm version minor",
+    "version:major": "npm version major",
+    "prepack": "rm -rf lib && npm run build",
+    "pack": "rm -rf dest && mkdir -p dest && npm pack --pack-destination=dest",
+    "publish:npm": "bash ../bin/publish.sh",
+    "test:unit": "NODE_OPTIONS=--max-old-space-size=2048 npx jest --runInBand --logHeapUsage --detectOpenHandles --forceExit --errorOnDeprecated --coverage --silent --passWithNoTests --unhandled-rejections=strict"
+  },
+  "keywords": [
+    "utility",
+    "utils"
+  ],
+  "author": "satoshi kotaki",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/digitalwalletcorp/utils.git"
+  },
+  "homepage": "https://github.com/digitalwalletcorp/utils",
+  "bugs": {
+    "url": "https://github.com/digitalwalletcorp/utils/issues"
+  },
+  "files": [
+    "lib/**/*",
+    "src/**/*"
+  ],
+  "devDependencies": {
+    "@types/jest": "30.0.0",
+    "jest": "30.5.2",
+    "ts-jest": "29.4.14",
+    "ts-node": "10.9.2",
+    "tsconfig-paths": "4.2.0",
+    "typescript": "6.0.3"
+  }
+}
