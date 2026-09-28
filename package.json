@@ -13,11 +13,13 @@
     "prepack": "rm -rf lib && npm run build",
     "pack": "rm -rf dest && mkdir -p dest && npm pack --pack-destination=dest",
     "publish:npm": "bash ../bin/publish.sh",
-    "test:unit": "NODE_OPTIONS=--max-old-space-size=2048 npx jest --runInBand --logHeapUsage --detectOpenHandles --forceExit --errorOnDeprecated --coverage --silent --passWithNoTests --unhandled-rejections=strict"
+    "test:unit": "NODE_OPTIONS=--max-old-space-size=2048 npx jest --runInBand --logHeapUsage --detectOpenHandles --forceExit --errorOnDeprecated --coverage --silent --unhandled-rejections=strict"
   },
   "keywords": [
     "utility",
-    "utils"
+    "utils",
+    "number",
+    "decimal"
   ],
   "author": "satoshi kotaki",
   "license": "MIT",
@@ -33,7 +35,11 @@
     "lib/**/*",
     "src/**/*"
   ],
+  "dependencies": {
+    "big.js": "7.0.1"
+  },
   "devDependencies": {
+    "@types/big.js": "6.2.2",
     "@types/jest": "30.0.0",
     "jest": "30.5.2",
     "ts-jest": "29.4.14",
