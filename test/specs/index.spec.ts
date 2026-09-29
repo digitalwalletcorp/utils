@@ -1,4 +1,7 @@
-import { NumberUtil } from '@/index';
+import { describe, it, expect } from 'vitest';
+import * as Index from '@/index';
+
+const { NumberUtil } = Index;
 
 describe('@/index.ts', () => {
   it('NumberUtilとして公開されていること', () => {
@@ -14,5 +17,8 @@ describe('@/index.ts', () => {
     expect(Object.keys(NumberUtil)).not.toContain('calcAsBig');
     expect(Object.keys(NumberUtil)).not.toContain('MIN_LONG');
     expect(Object.keys(NumberUtil)).not.toContain('MAX_LONG');
+  });
+  it('RegExpMatcherはサブパス専用のためindexから公開しないこと', () => {
+    expect('RegExpMatcher' in Index).toBe(false);
   });
 });

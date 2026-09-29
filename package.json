@@ -1,19 +1,44 @@
 {
   "name": "@digitalwalletcorp/utils",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "A javascript utility.",
-  "main": "lib/index.js",
+  "type": "module",
+  "main": "lib/index.cjs",
+  "module": "lib/index.js",
   "types": "lib/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./lib/index.d.ts",
+        "default": "./lib/index.js"
+      },
+      "require": {
+        "types": "./lib/index.d.cts",
+        "default": "./lib/index.cjs"
+      }
+    },
+    "./*": {
+      "import": {
+        "types": "./lib/*.d.ts",
+        "default": "./lib/*.js"
+      },
+      "require": {
+        "types": "./lib/*.d.cts",
+        "default": "./lib/*.cjs"
+      }
+    }
+  },
   "scripts": {
-    "build": "tsc --project tsconfig.build.json",
+    "build": "vite build",
     "install:dev": "rm -rf lib dest && find node_modules -mindepth 1 -delete && yarn install",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
     "version:patch": "npm version patch",
     "version:minor": "npm version minor",
     "version:major": "npm version major",
     "prepack": "rm -rf lib && npm run build",
     "pack": "rm -rf dest && mkdir -p dest && npm pack --pack-destination=dest",
     "publish:npm": "bash ../bin/publish.sh",
-    "test:unit": "NODE_OPTIONS=--max-old-space-size=2048 npx jest --runInBand --logHeapUsage --detectOpenHandles --forceExit --errorOnDeprecated --coverage --silent --unhandled-rejections=strict"
+    "test:unit": "vitest run --coverage"
   },
   "keywords": [
     "utility",
@@ -40,11 +65,11 @@
   },
   "devDependencies": {
     "@types/big.js": "6.2.2",
-    "@types/jest": "30.0.0",
-    "jest": "30.5.2",
-    "ts-jest": "29.4.14",
-    "ts-node": "10.9.2",
-    "tsconfig-paths": "4.2.0",
-    "typescript": "6.0.3"
+    "@types/node": "24.13.6",
+    "@vitest/coverage-v8": "3.2.4",
+    "typescript": "6.0.3",
+    "vite": "7.3.6",
+    "vite-plugin-dts": "5.1.0",
+    "vitest": "3.2.4"
   }
 }
