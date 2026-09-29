@@ -36,6 +36,7 @@ NumberUtil.formatComma(1234567.891, 2); // '1,234,567.89'
 | Utility | Description |
 | ------- | ----------- |
 | [`NumberUtil`](https://github.com/digitalwalletcorp/utils/blob/main/docs/number-util.md) | Decimal-safe arithmetic, rounding and number formatting. |
+| [`RegExpMatcher`](https://github.com/digitalwalletcorp/utils/blob/main/docs/reg-exp-matcher.md) | Match-by-match string replacement, inspired by Java's `Pattern` / `Matcher`. Imported from `@digitalwalletcorp/utils/reg-exp-matcher`. |
 
 #### 📜 License
 
