@@ -1,3 +1,4 @@
+import { describe, it, expect } from 'vitest';
 import { NumberUtil } from '@/index';
 
 describe('@/index.ts', () => {
