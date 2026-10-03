@@ -30,8 +30,11 @@
   },
   "scripts": {
     "build": "vite build",
+    "yarn:dedupe": "npx yarn-deduplicate --strategy highest yarn.lock",
     "install:dev": "rm -rf lib dest && find node_modules -mindepth 1 -delete && yarn install",
     "typecheck": "tsc --noEmit -p tsconfig.json",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix .",
     "version:patch": "npm version patch",
     "version:minor": "npm version minor",
     "version:major": "npm version major",
@@ -41,10 +44,7 @@
     "test:unit": "vitest run --coverage"
   },
   "keywords": [
-    "utility",
-    "utils",
-    "number",
-    "decimal"
+    "utils"
   ],
   "author": "satoshi kotaki",
   "license": "MIT",
@@ -61,15 +61,28 @@
     "src/**/*"
   ],
   "dependencies": {
-    "big.js": "7.0.1"
+    "big.js": "7.0.1",
+    "crypto-js": "4.2.0",
+    "diff": "8.0.2"
   },
   "devDependencies": {
+    "@stylistic/eslint-plugin": "5.10.0",
     "@types/big.js": "6.2.2",
+    "@types/crypto-js": "4.2.2",
     "@types/node": "24.13.6",
     "@vitest/coverage-v8": "3.2.4",
+    "eslint": "10.11.0",
+    "globals": "17.13.0",
     "typescript": "6.0.3",
+    "typescript-eslint": "8.71.0",
     "vite": "7.3.6",
     "vite-plugin-dts": "5.1.0",
     "vitest": "3.2.4"
+  },
+  "resolutions": {
+    "eslint": "10.11.0",
+    "typescript-eslint": "8.71.0",
+    "@stylistic/eslint-plugin": "5.10.0",
+    "globals": "17.13.0"
   }
 }

@@ -8,12 +8,12 @@ A javascript utility.
 
 * **Grouped by purpose**: Each utility is exported as a namespace (e.g. `NumberUtil`).
 * **No external types in the public API**: Third-party libraries are used internally only, so they can be replaced without affecting your code.
-* **Fully typed**: Type definitions are included.
 
 #### ✅ Compatibility
 
 - ✅ **Node.js**: Fully supported on all modern Node.js versions.
 - ✅ **Browsers**: Fully supported on all modern browsers that support ES2020 (`BigInt`).
+- ✅ **Module formats**: CommonJS and ESM.
 
 #### 📦 Installation
 
@@ -35,7 +35,10 @@ NumberUtil.formatComma(1234567.891, 2); // '1,234,567.89'
 
 | Utility | Description |
 | ------- | ----------- |
+| [`CryptoUtil`](https://github.com/digitalwalletcorp/utils/blob/main/docs/crypto-util.md) | Hashing and random string generation. |
+| [`HtmlUtil`](https://github.com/digitalwalletcorp/utils/blob/main/docs/html-util.md) | HTML string formatting, word highlighting and character diffs. |
 | [`NumberUtil`](https://github.com/digitalwalletcorp/utils/blob/main/docs/number-util.md) | Decimal-safe arithmetic, rounding and number formatting. |
+| [`StringUtil`](https://github.com/digitalwalletcorp/utils/blob/main/docs/string-util.md) | String manipulation and URL building. |
 | [`RegExpMatcher`](https://github.com/digitalwalletcorp/utils/blob/main/docs/reg-exp-matcher.md) | Match-by-match string replacement, inspired by Java's `Pattern` / `Matcher`. Imported from `@digitalwalletcorp/utils/reg-exp-matcher`. |
 
 #### 📜 License
